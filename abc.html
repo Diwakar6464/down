@@ -1,0 +1,28 @@
+<html>
+    <head>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    </head>
+    <body>
+        <input type="file" id = "input">
+        <table id = "tbl-data"></table>
+
+        <script>
+            
+            const workbook = new ExcelJS.Workbook();
+            const worksheet = workbook.addWorksheet('Sheet1');
+            worksheet.getCell(`C2`).value = 'Hello, World!';
+
+            console.log("no problem until here")
+
+            workbook.xlsx.writeBuffer().then(buffer => saveAs(new Blob([buffer]),"almighty.xlsx"))
+
+                
+        </script>
+        
+    </body>
+
+
+</html>
